@@ -1,0 +1,97 @@
+<!-- =========================================================
+  TELA: novo_emprestimo.html
+  OBJETIVO: Registrar um novo empréstimo (usuário + livro + datas)
+========================================================== -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Novo Empréstimo | Biblioteca Comunitária</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="manifest" href="site.webmanifest" />
+    <meta name="theme-color" content="#1E4D6B" />
+  </head>
+  <body class="page-novo-emprestimo">
+    <!-- ====================== Cabeçalho ====================== -->
+    <header class="header">
+      <h1 class="app-title">Biblioteca Comunitária</h1>
+      <nav class="top-actions">
+        <a class="btn btn--ghost" href="menu.html">← Voltar ao Menu</a>
+      </nav>
+    </header>
+
+    <!-- ====================== Banner/Mote ====================== -->
+    <section class="banner">
+      <h2 class="banner-title">Registrar Empréstimo</h2>
+      <p class="banner-subtitle">
+        <em>“Hermes currit”</em> — o conhecimento deve circular.
+      </p>
+    </section>
+
+    <!-- ====================== Formulário (vincula usuário e livro) ====================== -->
+    <main class="main">
+      <section class="card" aria-labelledby="titulo-form-emp">
+        <h3 id="titulo-form-emp" class="card-title">Dados do Empréstimo</h3>
+
+        <form id="loanForm" class="form" autocomplete="off">
+          <!-- Campos de seleção.
+             Em um backend real, estes <select> seriam preenchidos com usuários e livros do banco -->
+          <div class="form-field">
+            <label for="usuario">Usuário</label>
+            <select id="usuario" name="usuario" required>
+              <option value="">Selecione...</option>
+              <option>João Pereira</option>
+              <option>Maria Santos</option>
+            </select>
+          </div>
+
+          <div class="form-field">
+            <label for="livro">Livro</label>
+            <select id="livro" name="livro" required>
+              <option value="">Selecione...</option>
+              <option>A República (Platão)</option>
+              <option>Ética a Nicômaco (Aristóteles)</option>
+            </select>
+          </div>
+
+          <div class="form-field">
+            <label for="retirada">Data de retirada</label>
+            <input id="retirada" name="retirada" type="date" />
+            <!-- Dica: no JS você pode setar hoje como padrão -->
+          </div>
+
+          <div class="form-field">
+            <label for="devolucao">Data prevista de devolução</label>
+            <input id="devolucao" name="devolucao" type="date" />
+            <!-- Dica: padrão = hoje + 7 dias -->
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn--primary">Registrar</button>
+            <button type="reset" class="btn btn--ghost">Limpar</button>
+          </div>
+        </form>
+      </section>
+
+      <!-- Guia/legenda do fluxo -->
+      <section class="card" aria-labelledby="ajuda-emp">
+        <h3 id="ajuda-emp" class="card-title">Ajuda</h3>
+        <p class="card-text">
+          1) Escolha o usuário → 2) Escolha o livro → 3) Ajuste as datas → 4)
+          Registrar.
+        </p>
+      </section>
+    </main>
+
+    <!-- ====================== Rodapé ====================== -->
+    <footer class="footer">
+      <small>© <span id="ano-atual"></span> Biblioteca Comunitária</small>
+    </footer>
+  </body>
+</html>

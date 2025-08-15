@@ -1,0 +1,110 @@
+<!-- =========================================================
+  TELA: emprestimo.html
+  OBJETIVO: Visualizar e gerenciar todos os empréstimos
+========================================================== -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Empréstimos | Biblioteca Comunitária</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="manifest" href="site.webmanifest" />
+    <meta name="theme-color" content="#1E4D6B" />
+  </head>
+  <body class="page-emprestimos">
+    <!-- ====================== Cabeçalho ====================== -->
+    <header class="header">
+      <h1 class="app-title">Biblioteca Comunitária</h1>
+      <nav class="top-actions">
+        <a class="btn btn--ghost" href="menu.html">← Voltar ao Menu</a>
+      </nav>
+    </header>
+
+    <!-- ====================== Banner/Mote ====================== -->
+    <section class="banner">
+      <h2 class="banner-title">Gerenciar Empréstimos</h2>
+      <p class="banner-subtitle">
+        <em>“Temporis custos”</em> — o tempo é o juiz dos prazos.
+      </p>
+    </section>
+
+    <!-- ====================== Filtros e Tabela ====================== -->
+    <main class="main">
+      <section class="card" aria-labelledby="titulo-filtros">
+        <h3 id="titulo-filtros" class="card-title">Filtros</h3>
+        <div class="toolbar">
+          <input
+            id="filtro-emprestimos"
+            class="input"
+            placeholder="Buscar por usuário/livro"
+          />
+          <select id="status" class="input">
+            <option value="">Todos os status</option>
+            <option value="Ativo">Ativo</option>
+            <option value="Atrasado">Atrasado</option>
+            <option value="Devolvido">Devolvido</option>
+          </select>
+          <!-- Futuro: script.js faz filtragem client-side ou via API -->
+        </div>
+      </section>
+
+      <section class="card" aria-labelledby="titulo-tabela-emp">
+        <h3 id="titulo-tabela-emp" class="card-title">Todos os Empréstimos</h3>
+
+        <div class="table-wrap">
+          <table id="loanTable" class="table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Usuário</th>
+                <th>Livro</th>
+                <th>Retirada</th>
+                <th>Prev. Devolução</th>
+                <th>Status</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Exemplos (mock) -->
+              <tr>
+                <td>101</td>
+                <td>João Pereira</td>
+                <td>A República</td>
+                <td>2025-08-10</td>
+                <td>2025-08-17</td>
+                <td>Ativo</td>
+                <td>
+                  <button class="btn btn--ghost">Marcar Devolvido</button>
+                  <button class="btn btn--ghost">Renovar (+7)</button>
+                </td>
+              </tr>
+              <tr>
+                <td>102</td>
+                <td>Maria Santos</td>
+                <td>Ética a Nicômaco</td>
+                <td>2025-08-01</td>
+                <td>2025-08-08</td>
+                <td>Atrasado</td>
+                <td>
+                  <button class="btn btn--ghost">Marcar Devolvido</button>
+                  <button class="btn btn--ghost">Renovar (+7)</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <!-- ====================== Rodapé ====================== -->
+    <footer class="footer">
+      <small>© <span id="ano-atual"></span> Biblioteca Comunitária</small>
+    </footer>
+  </body>
+</html>

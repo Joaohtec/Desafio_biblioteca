@@ -1,0 +1,422 @@
+/* =====================================================================
+   PROJETO: Sistema de Biblioteca Comunitária
+   ARQUIVO: style.css
+   TEMA: Alexandria / Cultura Helenista
+   ===================================================================== */
+
+/* ------------------------------ Paleta (CSS Vars) ------------------------------ */
+:root {
+  /* Escopo global das variáveis CSS */
+  /* cores base */
+  --aegean-700: #0e2a3a; /* Azul marinho profundo (contraste) */
+  --aegean-600: #1e4d6b; /* Azul Egeu (cor principal) */
+  --aegean-300: #77a9c8; /* Azul claro (tinta do céu) */
+
+  --gold-500: #d3a240; /* Ouro Olímpia (destaques/aneis) */
+  --terracotta-500: #b1533b; /* Terracota (calor helênico) */
+  --maroon-700: #7d2e2e; /* Vinho escuro (detalhes) */
+
+  --sand-300: #e8c59c; /* Areia (texturas quentes) */
+  --parchment-100: #f7e8d0; /* Papel pergaminho (fundo) */
+  --shadow-700: #3b2a22; /* Sombra quente (profundidade) */
+
+  --olive-600: #2e6b57; /* Verde oliva (variação) */
+  --olive-400: #4e8a6f; /* Verde oliva claro (hover/apoio) */
+
+  --ink: #1c1c1c; /* Tinta/Texto padrão */
+  --white: #ffffff; /* Branco puro */
+
+  /* superfície e texto */
+  --bg: var(--parchment-100); /* Fundo do app (pergaminho) */
+  --surface: #fffdf8; /* Cartões/superfícies */
+  --surface-contrast: var(
+    --aegean-700
+  ); /* Texto de destaque sobre superfícies claras */
+  --muted: #6a6a6a; /* Texto secundário/ajuda */
+
+  /* foco, borda e realces */
+  --ring: var(--gold-500); /* Cor do anel de foco (acessibilidade) */
+  --border: #e5dcc9; /* Cor padrão de bordas */
+  --shadow: 0 10px 30px rgba(14, 42, 58, 0.12); /* Sombra padrão de cartões */
+
+  /* botões */
+  --btn-primary-bg: var(--aegean-600); /* Fundo do botão primário */
+  --btn-primary-bg-hover: #1a425c; /* Hover do botão primário */
+  --btn-primary-text: var(--white); /* Texto do botão primário */
+
+  --btn-ghost-text: var(--aegean-600); /* Texto do botão fantasma */
+  --btn-ghost-hover: rgba(30, 77, 107, 0.08); /* Fundo no hover do ghost */
+
+  /* dimensões */
+  --radius: 16px; /* Raio grande p/ cartões */
+  --radius-sm: 12px; /* Raio menor p/ inputs/botões */
+  --gap: 16px; /* Espaçamento padrão (grid) */
+  --gap-lg: 24px; /* Espaçamento maior */
+  --maxw: 1100px; /* Largura máxima do conteúdo */
+}
+/* ------------------------------ Reset enxuto ------------------------------ */
+* {
+  box-sizing: border-box; /* Inclui bordas no cálculo de largura/altura */
+}
+html,
+body {
+  height: 100%; /* Permite layouts que dependem da altura total */
+}
+body {
+  margin: 0; /* Remove margem padrão */
+  font: 16px/1.5 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Arial,
+    sans-serif; /* Fonte legível no sistema */
+  color: var(--ink); /* Cor de texto padrão */
+  background: var(--bg); /* Fundo geral (pergaminho) */
+}
+/* ------------------------------ Utilitários básicos ------------------------------ */
+.container {
+  max-width: var(--maxw); /* Limita largura do conteúdo */
+  margin: 0 auto; /* Centraliza horizontalmente */
+  padding: 0 20px; /* Respiro lateral */
+}
+.hidden {
+  display: none !important; /* Força ocultar elemento */
+}
+/* ------------------------------ Cabeçalho ------------------------------ */
+.header {
+  display: flex; /* Layout horizontal */
+  align-items: center; /* Alinha verticalmente */
+  justify-content: space-between; /* Espaça título e user-area */
+  padding: 20px 24px; /* Respiro interno */
+  margin: 0 auto; /* Centraliza no container */
+  max-width: var(--maxw); /* Largura máxima */
+}
+.header--login {
+  color: var(--surface-contrast); /* Cor do texto no header do login */
+}
+.header--menu {
+  border-bottom: 1px solid var(--border); /* Linha sutil inferior */
+  background: linear-gradient(0deg, #fff, #fff9); /* Fundo translúcido */
+  backdrop-filter: blur(6px); /* Efeito glass (quando suportado) */
+}
+
+.app-title {
+  font-size: clamp(22px, 3.2vw, 28px); /* Título responsivo */
+  letter-spacing: 0.3px; /* Micro ajuste de tracking */
+  margin: 0; /* Remove margem padrão */
+  color: var(--aegean-700); /* Azul forte helênico */
+}
+.user-area {
+  display: flex; /* Ícone/avatar + nome */
+  gap: 12px; /* Espaço entre itens */
+  align-items: center; /* Alinha verticalmente */
+}
+.user-badge {
+  padding: 6px 10px; /* Respiro da “pílula” */
+  border-radius: 999px; /* Forma de pílula */
+  background: #f0efe7; /* Fundo claro */
+  border: 1px solid var(--border); /* Contorno */
+  color: var(--aegean-700); /* Texto azul */
+}
+/* ------------------------------ Banner ------------------------------ */
+.banner {
+  text-align: center; /* Centraliza textos */
+  padding: 36px 16px 10px; /* Respiro superior */
+}
+.banner-title {
+  margin: 0 0 6px 0; /* Margem inferior leve */
+  font-size: clamp(22px, 3.5vw, 30px); /* Responsivo */
+  color: var(--aegean-700); /* Azul forte */
+}
+.banner-subtitle {
+  margin: 0; /* Remove margem padrão */
+  color: var(--muted); /* Texto secundário */
+}
+/* ------------------------------ Main / Grid ------------------------------ */
+.main {
+  max-width: var(--maxw); /* Centraliza e limita largura */
+  margin: 0 auto; /* Centralizado */
+  padding: 24px; /* Respiro geral */
+}
+.grid {
+  display: grid; /* Layout em grid */
+  gap: var(--gap); /* Espaçamento entre células */
+}
+.grid--menu {
+  grid-template-columns: repeat(4, 1fr); /* 4 colunas iguais no desktop */
+}
+@media (max-width: 1024px) {
+  .grid--menu {
+    grid-template-columns: repeat(2, 1fr); /* 2 colunas no tablet */
+  }
+}
+@media (max-width: 560px) {
+  .grid--menu {
+    grid-template-columns: 1fr; /* 1 coluna no mobile */
+  }
+}
+/* ------------------------------ Cards ------------------------------ */
+.card {
+  background: var(--surface); /* Fundo claro */
+  border: 1px solid var(--border); /* Borda suave */
+  border-radius: var(--radius); /* Cantos arredondados */
+  padding: 20px; /* Respiro interno */
+  box-shadow: var(--shadow); /* Sombra sutil */
+}
+.card-title {
+  margin: 0 0 12px 0; /* Espaço abaixo do título */
+  color: var(--aegean-700); /* Cor do título */
+}
+.card--action {
+  display: flex; /* Empilha botões e textos */
+  flex-direction: column; /* Coluna */
+  gap: 10px; /* Espaço entre itens */
+}
+.card--login {
+  max-width: 520px; /* Cartão de login mais estreito */
+  margin: 24px auto; /* Centralizado */
+  background: rgba(255, 255, 255, 0.92); /* Vidro fosco claro */
+  backdrop-filter: blur(8px); /* Desfoque (suporte condicional) */
+}
+/* ------------------------------ Botões ------------------------------ */
+.btn {
+  appearance: none; /* Remove estilos nativos */
+  border: 0; /* Sem borda padrão */
+  cursor: pointer; /* Cursor de ação */
+  user-select: none; /* Evita seleção de texto acidental */
+  border-radius: 12px; /* Canto arredondado */
+  padding: 10px 14px; /* Tamanho confortável */
+  font-weight: 600; /* Peso do texto */
+  transition: transform 0.04s ease, background 0.2s ease, box-shadow 0.2s ease; /* Feedback */
+}
+.btn:active {
+  transform: translateY(1px); /* Clique “afunda” levemente */
+}
+.btn:focus-visible {
+  outline: 3px solid var(--ring); /* Aro de foco acessível */
+  outline-offset: 2px; /* Distância do aro */
+}
+.btn--primary {
+  background: var(--btn-primary-bg); /* Fundo do primário */
+  color: var(--btn-primary-text); /* Texto em branco */
+  box-shadow: 0 6px 16px rgba(30, 77, 107, 0.25); /* Sombra ao redor */
+}
+.btn--primary:hover {
+  background: var(--btn-primary-bg-hover); /* Escurece no hover */
+}
+.btn--ghost {
+  background: transparent; /* Sem preenchimento */
+  color: var(--btn-ghost-text); /* Azul Egeu no texto */
+}
+.btn--ghost:hover {
+  background: var(--btn-ghost-hover); /* Leve wash azul no hover */
+}
+/* ------------------------------ Formulários ------------------------------ */
+.form {
+  display: grid; /* Layout organizado */
+  gap: var(--gap); /* Espaço entre campos */
+}
+.form-field {
+  display: flex; /* Campo com label + input */
+  flex-direction: column; /* Empilha verticalmente */
+  gap: 6px; /* Espaço entre label e input */
+}
+label {
+  font-weight: 600; /* Destaque para rótulos */
+  color: var(--aegean-700); /* Azul forte */
+}
+input,
+select,
+textarea {
+  appearance: none; /* Remove estilos nativos */
+  border: 1px solid var(--border); /* Borda suave */
+  background: #fff; /* Fundo branco para leitura */
+  border-radius: 12px; /* Cantos arredondados */
+  padding: 10px 12px; /* Respiro interno */
+  font-size: 16px; /* Tamanho confortável */
+  color: var(--ink); /* Texto escuro */
+  transition: border 0.2s ease, box-shadow 0.2s ease, background 0.2s ease; /* Feedback */
+}
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none; /* Remove contorno nativo */
+  border-color: var(--aegean-600); /* Realça a borda */
+  box-shadow: 0 0 0 3px rgba(211, 162, 64, 0.25); /* Anel dourado translúcido */
+}
+.help {
+  color: var(--muted); /* Texto de ajuda */
+  font-size: 0.9rem; /* Um pouco menor */
+}
+.form-actions {
+  display: flex; /* Botões lado a lado */
+  gap: 10px; /* Espaço entre botões */
+  flex-wrap: wrap; /* Quebra linha no mobile */
+}
+/* ------------------------------ Tabelas ------------------------------ */
+.table-wrap {
+  width: 100%; /* Ocupa a largura total */
+  overflow: auto; /* Scroll horizontal se necessário */
+  border-radius: var(--radius); /* Cantos arredondados no contêiner */
+  border: 1px solid var(--border); /* Contorno da tabela */
+}
+.table {
+  width: 100%; /* Tabela ocupa todo o wrap */
+  border-collapse: separate; /* Permite border-spacing */
+  border-spacing: 0; /* Sem espaçamento entre células */
+  background: #fff; /* Fundo branco p/ contraste */
+}
+.table th,
+.table td {
+  padding: 12px 14px; /* Respiro nas células */
+  border-bottom: 1px solid var(--border); /* Linha divisória */
+  text-align: left; /* Alinhamento padrão */
+}
+.table thead th {
+  position: sticky; /* Cabeçalho “gruda” no topo */
+  top: 0; /* Offset do sticky */
+  background: #fbf8ef; /* Fundo do cabeçalho */
+  color: var(--aegean-700); /* Texto do cabeçalho */
+  z-index: 1; /* Fica acima do corpo ao rolar */
+}
+.table tbody tr:hover {
+  background: #fbfbf7; /* Realce sutil ao passar o mouse */
+}
+/* ------------------------------ Toolbars / Inputs soltos ------------------------------ */
+.toolbar {
+  display: flex; /* Linha de controles */
+  gap: 10px; /* Espaçamento entre itens */
+  align-items: center; /* Alinhamento vertical */
+  margin-bottom: 10px; /* Respiro abaixo */
+}
+.input {
+  width: 100%; /* Ocupa largura disponível */
+  max-width: 360px; /* Travar largura máxima */
+}
+/* ------------------------------ Feedback (mensagens) ------------------------------ */
+.feedback {
+  margin: 8px 0; /* Espaço vertical */
+  padding: 10px 12px; /* Respiro interno */
+  border-radius: 12px; /* Cantos arredondados */
+  border: 1px solid var(--border); /* Contorno */
+}
+.feedback.is-error {
+  background: #ffeceb; /* Fundo vermelho claro */
+  border-color: #e9b4b0; /* Borda compatível */
+  color: #7a1d17; /* Texto vermelho escuro */
+}
+.feedback.is-success {
+  background: #edf9ef; /* Fundo verde claro */
+  border-color: #b8e2c3; /* Borda */
+  color: #136334; /* Texto verde escuro */
+}
+.feedback.is-info {
+  background: #eef6ff; /* Fundo azul claro */
+  border-color: #b7d4f6; /* Borda */
+  color: #174a8b; /* Texto azul escuro */
+}
+/* ------------------------------ Rodapé ------------------------------ */
+.footer {
+  max-width: var(--maxw); /* Largura máxima */
+  margin: 40px auto 24px; /* Espaçamento externo */
+  padding: 0 24px; /* Respiro lateral */
+  color: var(--muted); /* Texto secundário */
+}
+/* ------------------------------ PÁGINAS ESPECÍFICAS ------------------------------ */
+
+/* INDEX (page-login): imagem hero com overlay para legibilidade */
+.page-login {
+  min-height: 100dvh; /* Altura total da viewport dinâmica */
+  /* Substitua o caminho abaixo pela sua imagem principal */
+  background: linear-gradient(
+      140deg,
+      rgba(14, 42, 58, 0.7),
+      /* Camada azul escura */ rgba(177, 83, 59, 0.45) /* Camada terracota */
+    ),
+    url("images/alexandria-hero.jpg") center / cover no-repeat fixed; /* Hero + fixo */
+  display: flex; /* Permite centralizar conteúdo */
+  flex-direction: column; /* Empilha verticalmente */
+}
+.page-login .header--login {
+  color: #fff; /* Header claro sobre overlay */
+}
+.page-login .app-title {
+  color: #fff; /* Título claro no hero */
+}
+.page-login .main--login {
+  flex: 1; /* Ocupa espaço remanescente */
+  display: flex; /* Centralização */
+  align-items: center; /* Centraliza verticalmente */
+  justify-content: center; /* Centraliza horizontalmente */
+}
+.page-login .card--login {
+  border: 1px solid rgba(255, 255, 255, 0.5); /* Borda translúcida “vidro” */
+}
+/* MENU: cards coloridos de ação (sutileza temática) */
+.page-menu .card--action {
+  border-top: 4px solid var(--gold-500); /* Faixa dourada padrão */
+}
+.page-menu .card--action:nth-child(2) {
+  border-top-color: var(--olive-600); /* 2º card: verde oliva */
+}
+.page-menu .card--action:nth-child(3) {
+  border-top-color: var(--terracotta-500); /* 3º card: terracota */
+}
+.page-menu .card--action:nth-child(4) {
+  border-top-color: var(--aegean-600); /* 4º card: azul Egeu */
+}
+/* ------------------------------ Detalhes helenistas (opcional decorativo) ------------------------------ */
+.decor-greek {
+  --size: 12px; /* Unidade básica do padrão */
+  background: repeating-linear-gradient(
+      /* Padrão grego repetido */ 90deg,
+      var(--gold-500) 0,
+      var(--gold-500) var(--size),
+      transparent var(--size),
+      transparent calc(var(--size) * 2)
+    ),
+    linear-gradient(var(--maroon-700), var(--maroon-700)); /* Faixa vinho ao fundo */
+  height: 24px; /* Altura da faixa */
+  border-radius: 8px; /* Cantos suaves */
+  margin: 6px 0; /* Espaço vertical */
+}
+/* ------------------------------ Acessibilidade Extra ------------------------------ */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important; /* Minimiza animações */
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important; /* Minimiza transições */
+    scroll-behavior: auto !important; /* Desativa scroll suave */
+  }
+}
+/* === modal simples para escolher data prevista === */
+.modal-pickdate {
+  position: fixed; /* Sobrepõe a tela toda */
+  inset: 0; /* Top/right/bottom/left: 0 */
+  background: rgba(0, 0, 0, 0.35); /* Backdrop escuro translúcido */
+  display: grid; /* Centralização fácil */
+  place-items: center; /* Centraliza conteúdo */
+  z-index: 9999; /* Fica acima de tudo */
+}
+.modal-pickdate__box {
+  background: var(--surface, #111); /* Usa surface; fallback #111 */
+  color: var(--text, #eee); /* Texto claro (fallback) */
+  padding: 1.25rem; /* Respiro interno */
+  border-radius: 12px; /* Cantos arredondados */
+  min-width: 320px; /* Largura mínima confortável */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4); /* Sombra do modal */
+}
+.modal-pickdate__box h3 {
+  margin: 0 0 0.75rem 0; /* Espaço abaixo do título */
+  font-size: 1.1rem; /* Tamanho do título do modal */
+}
+.modal-pickdate__box input[type="date"] {
+  width: 100%; /* Ocupa toda a caixa */
+  padding: 0.5rem 0.75rem; /* Respiro interno */
+  border-radius: 8px; /* Cantos suaves */
+  border: 1px solid rgba(255, 255, 255, 0.15); /* Borda sutil */
+  background: transparent; /* Fundo transparente p/ herdar tema */
+  color: inherit; /* Usa a cor do modal */
+}
+.modal-pickdate__actions {
+  display: flex; /* Alinha os botões lado a lado */
+  gap: 0.5rem; /* Espaço entre botões */
+  margin-top: 0.75rem; /* Espaço acima da barra de ações */
+  justify-content: flex-end; /* Botões à direita */
+}

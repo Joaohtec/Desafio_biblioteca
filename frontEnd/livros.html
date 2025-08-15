@@ -1,0 +1,171 @@
+<!-- =========================================================
+  TELA: livros.html
+  OBJETIVO: Cadastrar e listar livros (acervo)
+========================================================== -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Livros | Biblioteca Comunitária</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="manifest" href="site.webmanifest" />
+    <meta name="theme-color" content="#1E4D6B" />
+  </head>
+  <body class="page-livros">
+    <!-- ====================== Cabeçalho ====================== -->
+    <header class="header">
+      <h1 class="app-title">Biblioteca Comunitária</h1>
+      <nav class="top-actions">
+        <a class="btn btn--ghost" href="menu.html">← Voltar ao Menu</a>
+      </nav>
+    </header>
+
+    <!-- ====================== Banner/Mote ====================== -->
+    <section class="banner">
+      <h2 class="banner-title">Gerenciar Livros</h2>
+      <p class="banner-subtitle">
+        <em>“Athena docet”</em> — método e prudência na catalogação.
+      </p>
+    </section>
+
+    <!-- ====================== Formulário de cadastro ====================== -->
+    <main class="main">
+      <section class="card" aria-labelledby="titulo-form-livros">
+        <h3 id="titulo-form-livros" class="card-title">Novo Livro</h3>
+
+        <form id="bookForm" class="form" autocomplete="off">
+          <div class="form-field">
+            <label for="titulo">Título</label>
+            <input
+              id="titulo"
+              name="titulo"
+              type="text"
+              placeholder="Ex.: A República"
+              required
+            />
+          </div>
+
+          <div class="form-field">
+            <label for="autor">Autor</label>
+            <input
+              id="autor"
+              name="autor"
+              type="text"
+              placeholder="Platão"
+              required
+            />
+          </div>
+
+          <div class="form-field">
+            <label for="isbn">ISBN</label>
+            <input id="isbn" name="isbn" type="text" placeholder="978-..." />
+          </div>
+
+          <div class="form-field">
+            <label for="ano">Ano</label>
+            <input
+              id="ano"
+              name="ano"
+              type="number"
+              min="0"
+              max="2100"
+              placeholder="-400"
+              required
+            />
+          </div>
+
+          <div class="form-field">
+            <label for="categoria">Categoria</label>
+            <input
+              id="categoria"
+              name="categoria"
+              type="text"
+              placeholder="Filosofia"
+              required
+            />
+          </div>
+
+          <div class="form-field">
+            <label for="qtd">Exemplares</label>
+            <input id="qtd" name="qtd" type="number" min="1" value="1" />
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn--primary">Salvar</button>
+            <button type="reset" class="btn btn--ghost">Limpar</button>
+          </div>
+        </form>
+      </section>
+
+      <!-- ====================== Lista/Tabela de livros ====================== -->
+      <section class="card" aria-labelledby="titulo-lista-livros">
+        <h3 id="titulo-lista-livros" class="card-title">Acervo</h3>
+
+        <div class="toolbar">
+          <input
+            id="filtro-livros"
+            class="input"
+            placeholder="Filtrar por título/autor/ISBN"
+          />
+        </div>
+
+        <div class="table-wrap">
+          <table id="bookTable" class="table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Título</th>
+                <th>Autor</th>
+                <th>ISBN</th>
+                <th>Ano</th>
+                <th>Categoria</th>
+                <th>Exemplares</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Exemplos (mock) -->
+              <tr>
+                <td>1</td>
+                <td>A República</td>
+                <td>Platão</td>
+                <td>978-0000000000</td>
+                <td>-375</td>
+                <td>Filosofia</td>
+                <td>3</td>
+                <td>
+                  <button class="btn btn--ghost">Editar</button>
+                  <button class="btn btn--ghost">Excluir</button>
+                </td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Ética a Nicômaco</td>
+                <td>Aristóteles</td>
+                <td>978-1111111111</td>
+                <td>-340</td>
+                <td>Filosofia</td>
+                <td>2</td>
+                <td>
+                  <button class="btn btn--ghost">Editar</button>
+                  <button class="btn btn--ghost">Excluir</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <!-- ====================== Rodapé ====================== -->
+    <footer class="footer">
+      <small>© <span id="ano-atual"></span> Biblioteca Comunitária</small>
+    </footer>
+  </body>
+</html>

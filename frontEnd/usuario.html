@@ -1,0 +1,162 @@
+<!-- =========================================================
+  TELA: usuario.html
+  OBJETIVO: Cadastrar e listar usuários (leitores/bibliotecários)
+  DEP.: style.css (estilos), script.js (futuras integrações)
+========================================================== -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Usuários | Biblioteca Comunitária</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+    <!-- futuro: ligar eventos e persistência -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="manifest" href="site.webmanifest" />
+    <meta name="theme-color" content="#1E4D6B" />
+  </head>
+  <body class="page-usuarios">
+    <!-- ====================== Cabeçalho ====================== -->
+    <header class="header">
+      <h1 class="app-title">Biblioteca Comunitária</h1>
+      <!-- Título do sistema -->
+      <nav class="top-actions">
+        <a class="btn btn--ghost" href="menu.html">← Voltar ao Menu</a>
+        <!-- Atalho de retorno -->
+      </nav>
+    </header>
+
+    <!-- ====================== Banner/Mote ====================== -->
+    <section class="banner">
+      <h2 class="banner-title">Gerenciar Usuários</h2>
+      <p class="banner-subtitle">
+        <em>“Civitas prima”</em> — a comunidade começa pelas pessoas.
+      </p>
+    </section>
+
+    <!-- ====================== Formulário de cadastro ====================== -->
+    <main class="main">
+      <section class="card" aria-labelledby="titulo-form-usuarios">
+        <h3 id="titulo-form-usuarios" class="card-title">Novo Usuário</h3>
+
+        <!-- Formulário base; IDs para futura integração via JS -->
+        <form id="userForm" class="form" autocomplete="off">
+          <div class="form-field">
+            <label for="nome">Nome completo</label>
+            <input
+              id="nome"
+              name="nome"
+              type="text"
+              placeholder="Ex.: Maria Santos"
+              required
+            />
+            <!-- Campo de nome obrigatório -->
+          </div>
+
+          <div class="form-field">
+            <label for="email">E-mail</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              placeholder="maria@exemplo.com"
+              required
+            />
+            <!-- Campo de e-mail (opcional) -->
+          </div>
+
+          <div class="form-field">
+            <label for="telefone">Telefone</label>
+            <input
+              id="telefone"
+              name="telefone"
+              type="tel"
+              placeholder="(81) 99999-0000"
+            />
+            <!-- Campo de telefone (opcional) -->
+          </div>
+
+          <div class="form-field">
+            <label for="tipo">Tipo</label>
+            <select id="tipo" name="tipo">
+              <option value="leitor">Leitor</option>
+              <option value="bibliotecario">Bibliotecário</option>
+            </select>
+            <!-- Seleção do perfil do usuário -->
+          </div>
+
+          <div class="form-actions">
+            <button type="submit" class="btn btn--primary">Salvar</button>
+            <!-- Futuro: script.js captura submit e salva -->
+            <button type="reset" class="btn btn--ghost">Limpar</button>
+          </div>
+        </form>
+      </section>
+
+      <!-- ====================== Lista/Tabela de usuários ====================== -->
+      <section class="card" aria-labelledby="titulo-lista-usuarios">
+        <h3 id="titulo-lista-usuarios" class="card-title">
+          Usuários Cadastrados
+        </h3>
+
+        <div class="toolbar">
+          <input
+            id="filtro-usuarios"
+            class="input"
+            placeholder="Filtrar por nome ou e-mail"
+          />
+          <!-- Filtro de busca (futuro: ligar via JS) -->
+        </div>
+
+        <div class="table-wrap">
+          <table id="userTable" class="table">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Nome</th>
+                <th>E-mail</th>
+                <th>Telefone</th>
+                <th>Tipo</th>
+                <th>Ações</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Linhas de exemplo (mock); futuramente preenchidas via JS -->
+              <tr>
+                <td>1</td>
+                <td>João Pereira</td>
+                <td>joao@ex.com</td>
+                <td>(81) 90000-0000</td>
+                <td>Leitor</td>
+                <td>
+                  <button class="btn btn--ghost">Editar</button>
+                  <button class="btn btn--ghost">Excluir</button>
+                </td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>Bibliotecária Ana</td>
+                <td>ana@ex.com</td>
+                <td>(81) 95555-5555</td>
+                <td>Bibliotecário</td>
+                <td>
+                  <button class="btn btn--ghost">Editar</button>
+                  <button class="btn btn--ghost">Excluir</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+
+    <!-- ====================== Rodapé ====================== -->
+    <footer class="footer">
+      <small>© <span id="ano-atual"></span> Biblioteca Comunitária</small>
+    </footer>
+  </body>
+</html>

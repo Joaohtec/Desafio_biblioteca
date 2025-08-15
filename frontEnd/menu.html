@@ -1,0 +1,149 @@
+<!-- =========================================================
+  PROJETO: Sistema de Biblioteca Comunitária
+  TELA: menu.html (Menu Principal)
+========================================================== -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Menu Principal | Biblioteca Comunitária</title>
+
+    <!-- Estilos -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Favicon (coloque os arquivos na raiz do projeto) -->
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="manifest" href="site.webmanifest" />
+    <meta name="theme-color" content="#1E4D6B" />
+
+    <!-- Scripts -->
+    <script src="script.js" defer></script>
+  </head>
+
+  <body class="page-menu">
+    <!-- Cabeçalho -->
+    <header class="header header--menu">
+      <h1 class="app-title">Biblioteca Comunitária</h1>
+      <div class="user-area">
+        <span id="user-badge" class="user-badge" aria-live="polite"
+          >Carregando…</span
+        >
+        <button id="btn-logout" class="btn btn--ghost" title="Sair do sistema">
+          Sair
+        </button>
+      </div>
+    </header>
+
+    <!-- Faixa decorativa helenista (opcional) -->
+    <div class="decor-greek" aria-hidden="true"></div>
+
+    <!-- Banner -->
+    <section class="banner">
+      <h2 class="banner-title">Menu Principal</h2>
+      <p class="banner-subtitle">
+        <em
+          >“A Biblioteca de Alexandria nos lembra: organizar o conhecimento é um
+          ato de civilização.”</em
+        >
+      </p>
+    </section>
+
+    <!-- Atalhos principais -->
+    <main class="main main--menu" id="conteudo-principal">
+      <nav class="grid grid--menu" aria-label="Ações principais">
+        <!-- Usuários -->
+        <article class="card card--action">
+          <h3 class="card-title">Gerenciar Usuários</h3>
+          <p class="card-text">
+            Cadastre e mantenha registros de leitores e bibliotecários.
+            <br /><small
+              ><em>“Civitas” — a comunidade começa pelas pessoas.</em></small
+            >
+          </p>
+          <button
+            id="btn-usuarios"
+            class="btn btn--primary"
+            aria-label="Ir para Usuários"
+          >
+            Abrir Usuários
+          </button>
+        </article>
+
+        <!-- Livros -->
+        <article class="card card--action">
+          <h3 class="card-title">Gerenciar Livros</h3>
+          <p class="card-text">
+            Cadastre acervo, autores e exemplares.
+            <br /><small
+              ><em>“Athena” — método e prudência na catalogação.</em></small
+            >
+          </p>
+          <button
+            id="btn-livros"
+            class="btn btn--primary"
+            aria-label="Ir para Livros"
+          >
+            Abrir Livros
+          </button>
+        </article>
+
+        <!-- Registrar Empréstimo -->
+        <article class="card card--action">
+          <h3 class="card-title">Registrar Empréstimo</h3>
+          <p class="card-text">
+            Vincule usuário, livro e datas de retirada/devolução.
+            <br /><small><em>“Hermes” — o conhecimento circula.</em></small>
+          </p>
+          <button
+            id="btn-novo-emp"
+            class="btn btn--primary"
+            aria-label="Ir para Novo Empréstimo"
+          >
+            Novo Empréstimo
+          </button>
+        </article>
+
+        <!-- Empréstimos -->
+        <article class="card card--action">
+          <h3 class="card-title">Gerenciar Empréstimos</h3>
+          <p class="card-text">
+            Acompanhe prazos, devoluções e pendências.
+            <br /><small
+              ><em>“Temporis” — o tempo é o juiz dos prazos.</em></small
+            >
+          </p>
+          <button
+            id="btn-emp"
+            class="btn btn--primary"
+            aria-label="Ir para Empréstimos"
+          >
+            Abrir Empréstimos
+          </button>
+        </article>
+      </nav>
+
+      <!-- Acessibilidade sem JS -->
+      <noscript>
+        <p>
+          JavaScript desativado. Use os links:
+          <a href="usuario.html">Usuários</a> ·
+          <a href="livros.html">Livros</a> ·
+          <a href="novo_emprestimo.html">Novo Empréstimo</a> ·
+          <a href="emprestimo.html">Empréstimos</a>
+        </p>
+      </noscript>
+    </main>
+
+    <!-- Rodapé -->
+    <footer class="footer">
+      <small
+        >© <span id="ano-atual"></span> Biblioteca Comunitária — Versão
+        1.0</small
+      >
+    </footer>
+  </body>
+</html>

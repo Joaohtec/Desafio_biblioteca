@@ -1,0 +1,17 @@
+{
+  "name": "beckEnd",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "server.js",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "NODE_ENV=production node server.js",
+    "start:win": "node -e \"process.env.NODE_ENV='production'; import('./server.js')\""
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^5.1.0",
+    "mysql2": "^3.9.7"
+  }
+}

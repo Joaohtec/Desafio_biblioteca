@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<!-- HTML5: modo padrão de renderização nos navegadores -->
+
+<html lang="pt-BR">
+  <!-- Documento em Português (Brasil) -->
+
+  <head>
+    <!-- ====================== Metadados globais ====================== -->
+
+    <meta charset="utf-8" />
+    <!-- Codificação UTF-8 para suportar acentos -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- Layout responsivo em telas pequenas -->
+
+    <title>Login | Biblioteca Comunitária</title>
+    <!-- Título exibido na aba do navegador -->
+
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+    <link rel="manifest" href="site.webmanifest" />
+    <meta name="theme-color" content="#1E4D6B" />
+
+    <!-- Importa o ÚNICO CSS do projeto -->
+
+    <script src="script.js" defer></script>
+    <!-- Importa o ÚNICO JS do projeto; 'defer' executa após o HTML estar pronto -->
+  </head>
+
+  <body class="page-login">
+    <!-- A classe 'page-login' permite ao script.js detectar esta página -->
+
+    <!-- ====================== Cabeçalho ====================== -->
+    <header class="header header--login">
+      <!-- Container semântico para o cabeçalho -->
+
+      <h1 class="app-title">Biblioteca Comunitária</h1>
+      <!-- Título da aplicação -->
+
+      <p class="app-subtitle">Acesso do bibliotecário</p>
+      <!-- Subtítulo explicativo -->
+
+      <small class="mote">
+        <!-- Frase temática (opcional) -->
+        <em>“Sapientia est potentia”</em> — saber é poder.
+      </small>
+    </header>
+
+    <!-- ====================== Conteúdo Principal ====================== -->
+    <main class="main main--login" id="conteudo-principal">
+      <!-- Região principal para leitores de tela -->
+
+      <section class="card card--login" aria-labelledby="titulo-login">
+        <!-- “Cartão” visual que centraliza o botão -->
+
+        <h2 id="titulo-login" class="card-title">Entrar no sistema</h2>
+        <!-- Título da seção -->
+
+        <!-- ===== Botão ÚNICO de Login =====
+           id="btn-login" será capturado pelo script.js
+           Ao clicar: cria sessão mock e redireciona para menu.html -->
+        <button
+          id="btn-login"
+          class="btn btn--primary"
+          aria-label="Entrar no sistema"
+        >
+          Entrar
+        </button>
+
+        <p class="hint">
+          <!-- Texto informativo sobre o protótipo -->
+          <small>Protótipo: login instantâneo, sem senha.</small>
+        </p>
+      </section>
+    </main>
+
+    <!-- ====================== Rodapé ====================== -->
+    <footer class="footer footer--login">
+      <!-- Rodapé simples com ano dinâmico -->
+      <small
+        >© <span id="ano-atual"></span> Biblioteca Comunitária — Versão
+        1.0</small
+      >
+      <!-- script.js preenche #ano-atual -->
+    </footer>
+
+    <!-- ====================== Sem JavaScript ====================== -->
+    <noscript>
+      <!-- Aviso mostrado se o navegador estiver com JS desligado -->
+      Para acessar o sistema, ative o JavaScript no seu navegador.
+    </noscript>
+  </body>
+</html>
